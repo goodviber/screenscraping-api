@@ -64,11 +64,11 @@ class ModelsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_model
-      @model = Model.find(params[:id])
+      @model = Model.find_by_slug(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def model_params
-      params[:model]
+      params.require(:model).permit(:name, :slug, :organization_id)
     end
 end

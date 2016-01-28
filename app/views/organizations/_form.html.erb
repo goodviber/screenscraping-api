@@ -11,6 +11,23 @@
     </div>
   <% end %>
 
+<div class ="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div class ="field">
+  <%= f.label :public_name %>
+  <%= f.text_field :public_name %>
+</div>
+<div class ="field">
+  <%= f.label :organization_type %>
+  <%= f.text_field :organization_type %>
+</div>
+<div class ="field">
+  <%= f.label :pricing_policy %>
+  <%= f.select :pricing_policy, ["Flexible", "Fixed", "Prestige"] %>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+  <%= f.label :Organization %><br>
+  <%= f.collection_select(:organization_id, Organization.all, :id, :public_name) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

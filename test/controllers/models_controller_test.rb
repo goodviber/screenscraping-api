@@ -18,9 +18,8 @@ class ModelsControllerTest < ActionController::TestCase
 
   test "should create model" do
     assert_difference('Model.count') do
-      post :create, model: {  }
+      post :create, model: { name: "golf" }
     end
-
     assert_redirected_to model_path(assigns(:model))
   end
 
@@ -35,7 +34,7 @@ class ModelsControllerTest < ActionController::TestCase
   end
 
   test "should update model" do
-    patch :update, id: @model, model: {  }
+    patch :update, id: @model, model: { name: "update", slug: "update" }
     assert_redirected_to model_path(assigns(:model))
   end
 
@@ -43,7 +42,6 @@ class ModelsControllerTest < ActionController::TestCase
     assert_difference('Model.count', -1) do
       delete :destroy, id: @model
     end
-
     assert_redirected_to models_path
   end
 end

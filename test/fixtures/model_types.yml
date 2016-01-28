@@ -6,17 +6,10 @@
 #
 one:
   id: 1
-  name: tesla
-  public_name: tesla motors
-  organization_type: showroom
-  pricing_policy: Flexible
-
+  name: jet
 # column: value
 #
 two:
   id: 2
-  name: mercedes
-  public_name: mercedes benz
-  organization_type: dealership
-  pricing_policy: Fixed
+  name: aero
 #  column: value

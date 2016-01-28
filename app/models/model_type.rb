@@ -1,6 +1,5 @@
-class Model < ActiveRecord::Base
-  belongs_to :organization
-  has_many :model_types
+class ModelType < ActiveRecord::Base
+  belongs_to :model
 
   validates :name, presence: true, uniqueness: true
 
