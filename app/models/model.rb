@@ -11,4 +11,12 @@ class Model < ActiveRecord::Base
   def to_param
     slug
   end
+
+  def as_json(options={})
+    super(:only => [:name],
+      :include => {
+        :model_types => {:only => [:name, :base_price]}
+      }
+    )
+  end
 end

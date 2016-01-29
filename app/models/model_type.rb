@@ -10,4 +10,9 @@ class ModelType < ActiveRecord::Base
   def to_param
     slug
   end
+
+  def as_json(options={})
+    super(:only => [:name]
+    )
+  end
 end

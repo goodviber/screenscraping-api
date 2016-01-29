@@ -7,5 +7,25 @@
   <%= @model.organization.public_name if @model.organization %>
 </p>
 
+<h3>Add a model type</h3>
+<%= form_for([@model, @model.model_types.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :model_type_code %><br>
+    <%= f.text_field :model_type_code %>
+  </div>
+  <div class="field">
+    <%= f.label :base_price %><br>
+    <%= f.text_field :base_price %>
+  </div>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_model_path(@model) %> |
 <%= link_to 'Back', models_path %>

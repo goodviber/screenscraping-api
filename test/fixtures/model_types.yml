@@ -6,10 +6,15 @@
 #
 one:
   id: 1
-  name: jet
+  name: zorro
+  slug: zorro
+  model_type_code: 1234
+  base_price: 999
 # column: value
 #
 two:
-  id: 2
-  name: aero
+  name: rider
+  slug: rider
+  model_type_code: 1234
+  base_price: 999
 #  column: value

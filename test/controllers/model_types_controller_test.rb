@@ -6,44 +6,20 @@ class ModelTypesControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index
+    get :index, model_id: "jet"
     assert_response :success
-    assert_not_nil assigns(:model_types)
   end
 
   test "should get new" do
-    get :new
+    get :new, model_id: "jet"
     assert_response :success
   end
 
   test "should create model_type" do
     assert_difference('ModelType.count') do
-      post :create, model_type: {  }
+      post :create, model_type: { name: "banana", model_type_code: "2345", base_price: 199 }, model_id: "jet"
     end
-
-    assert_redirected_to model_type_path(assigns(:model_type))
+    assert_redirected_to model_model_type_path(:jet, assigns(:model_type))
   end
 
-  test "should show model_type" do
-    get :show, id: @model_type
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @model_type
-    assert_response :success
-  end
-
-  test "should update model_type" do
-    patch :update, id: @model_type, model_type: {  }
-    assert_redirected_to model_type_path(assigns(:model_type))
-  end
-
-  test "should destroy model_type" do
-    assert_difference('ModelType.count', -1) do
-      delete :destroy, id: @model_type
-    end
-
-    assert_redirected_to model_types_path
-  end
 end
