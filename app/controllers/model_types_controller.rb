@@ -1,5 +1,7 @@
 class ModelTypesController < ApplicationController
-  before_action :set_model_type, only: [:show]
+  before_action :set_model_type, only: [:show, :model_types_price]
+  skip_before_filter :verify_authenticity_token, only: [:model_types_price]
+
 
   # GET /model_types
   # GET /model_types.json
@@ -9,6 +11,13 @@ class ModelTypesController < ApplicationController
 
     respond_to do |format|
       format.json { render json: @model.as_json }
+    end
+  end
+
+  def model_types_price
+    model_type = @model_type.to_json()
+    respond_to do |format|
+      format.json { render json: {:model_type => model_type}}
     end
   end
 

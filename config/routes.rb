@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-
+  post 'models/:model_id/model_types_price/:id' => 'model_types#model_types_price', as: :model_type
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

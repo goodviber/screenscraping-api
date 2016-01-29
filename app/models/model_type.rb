@@ -12,7 +12,7 @@ class ModelType < ActiveRecord::Base
   end
 
   def as_json(options={})
-    super(:only => [:name]
+    super(:only => [:name, :base_price]
     )
   end
 end
