@@ -6,18 +6,16 @@ class ModelTypesController < ApplicationController
   # GET /model_types
   # GET /model_types.json
   def index
-    @model = Model.find_by_slug(params[:model_id])
-    @model_types = @model.model_types
-
+    models = Model.all.to_json(:include => {:model_types => {:only => [:name], :methods => [:total_price]}}, :only => [:name])
     respond_to do |format|
-      format.json { render json: @model.as_json }
+      format.json { render json: {models: JSON.parse(models)} , location: @model_type }
     end
   end
 
   def model_types_price
-    model_type = @model_type.to_json()
+    model_type = @model_type.to_json(:only => [:name], :methods => [:total_price], :base_price => params[:base_price])
     respond_to do |format|
-      format.json { render json: {:model_type => model_type}}
+      format.json { render json: {:model_type => model_type}, location: nil}
     end
   end
 

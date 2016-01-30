@@ -12,11 +12,4 @@ class Model < ActiveRecord::Base
     slug
   end
 
-  def as_json(options={})
-    super(:only => [:name],
-      :include => {
-        :model_types => {:only => [:name, :base_price]}
-      }
-    )
-  end
 end
